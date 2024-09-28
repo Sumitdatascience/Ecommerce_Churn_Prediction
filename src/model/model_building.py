@@ -74,7 +74,7 @@ def main():
     params = load_params('params.yaml')
     
     # Load data
-    x_train, y_train = load_data('./data/data_split/x_train.csv', './data/data_split/y_train.csv')
+    x_train, y_train = load_data('./data/processed/x_train.csv', './data/processed/y_train.csv')
     
     # Build transformers and model
     trf1, trf2 = build_transformer()

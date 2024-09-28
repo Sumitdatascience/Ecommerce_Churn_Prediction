@@ -180,7 +180,7 @@ def save_data(data_path,df):
 
 def main():
     df = data_preprocessed(df_unprocessed)
-    data_path = os.path.join("data","processed")
+    data_path = os.path.join("data","interim")
     save_data(data_path,df)
 
 if __name__ == "__main__":

@@ -59,8 +59,8 @@ def main():
     
     # Load test data
     x_test, y_test = load_test_data(
-        r'D:\cs_soft_ds_project\361_mu_churn_post_traning_poc\data\data_split\x_test.csv',
-        r'D:\cs_soft_ds_project\361_mu_churn_post_traning_poc\data\data_split\y_test.csv'
+        r'.\data\processed\x_test.csv',
+        r'.\data\processed\y_test.csv'
     )
     
     # Generate predictions

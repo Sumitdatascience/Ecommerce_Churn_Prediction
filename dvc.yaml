@@ -1,32 +1,34 @@
 stages:
   data_ingestion:
-    cmd: python src/data_ingestion.py
+    cmd: python src/data/data_ingestion.py
     deps:
-    - src/data_ingestion.py
+    - src/data/data_ingestion.py
     outs:
     - data/raw
+
   data_preprocessing:
-    cmd: python src/data_preprocessing.py
+    cmd: python src/data/data_preprocessing.py
     deps:
     - data/raw
-    - src/data_preprocessing.py
+    - src/data/data_preprocessing.py
     outs:
-    - data/processed
+    - data/interim
 
   feature_engineering:
-    cmd: python src/feature_engineering.py
+    cmd: python src/features/feature_engineering.py  # Corrected path
     deps:
-    - data/processed
-    - src/feature_engineering.py
+    - data/interim
+    - src/features/feature_engineering.py  # Corrected path
     params:
     - feature_engineering.test_size
     outs:
-    - data/data_split
+    - data/processed
+
   model_building:
-    cmd: python src/model_building.py
+    cmd: python src/model/model_building.py  # Corrected path
     deps:
-    - data/data_split
-    - src/model_building.py
+    - data/processed
+    - src/model/model_building.py  # Corrected path
     params:
     - model_building.max_depth
     - model_building.max_leaf_nodes
@@ -34,9 +36,9 @@ stages:
     - model.pkl
 
   model_evalution:
-    cmd: python src/model_evalution.py
+    cmd: python src/model/model_evalution.py  # Corrected path
     deps:
     - model.pkl
-    - src/model_evalution.py
+    - src/model/model_evalution.py  # Corrected path
     metrics:
     - metrics.json

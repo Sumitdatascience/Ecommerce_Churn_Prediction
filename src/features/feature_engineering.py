@@ -16,7 +16,7 @@ def test_params(params_path: str) -> float:
 
 # Split data into X and Y
 def x_y() -> tuple:
-    df = pd.read_csv('./data/processed/dfprocessed_.csv')
+    df = pd.read_csv('./data/interim/dfprocessed_.csv')
     x = df.drop(columns='Churn')
     y = df['Churn']
     return x, y
@@ -37,7 +37,7 @@ def main() -> None:
     x, y = x_y()  # Load X and Y data
     x_train, x_test, y_train, y_test = train_test_split(x, y, test_size=test_size, random_state=41)
     
-    data_path = os.path.join("data", "data_split")
+    data_path = os.path.join("data", "processed")
     save_train_test(data_path, x_train, x_test, y_train, y_test)  # Save train/test splits
 
 
